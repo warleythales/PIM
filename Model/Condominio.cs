@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Condominio
+    public class Condominio : Basico
     {
     }
 }
