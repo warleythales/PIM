@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    class Visita
+    public class Visita : Basico
     {
+        public int CondominioId { get; set; }
+        public int VisitanteId { get; set; }
+        [Display(Name = "Data da Visita")]
+        public DateTime DataVisita { get; set; }
+        [Display(Name = "Data da Entrada")]
+        public TimeSpan HoraEntrada { get; set; }
+        [Display(Name = "Data da Saída")]
+        public TimeSpan HoraSaida { get; set; }
+
+        public virtual Condominio Condominio { get; set; }
+        public virtual Visitante Visitante { get; set; }
     }
 }
