@@ -14,5 +14,11 @@ namespace Model
             EmAndamento,
             Concluida
         }
+
+        public enum TipoDocumento
+        {
+            CRE,
+            CPA
+        }
     }
 }
