@@ -8,7 +8,7 @@ using static Model.Enumerados;
 
 namespace Model
 {
-    class Apartamento : Basico
+    public class Apartamento : Basico
     {
         [Required]
         public int Numero { get; set; }
