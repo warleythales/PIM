@@ -9,14 +9,15 @@ namespace Model
 {
     public class Visita : Basico
     {
-        public int CondominioId { get; set; }
-        public int VisitanteId { get; set; }
         [Display(Name = "Data da Visita")]
         public DateTime DataVisita { get; set; }
         [Display(Name = "Data da Entrada")]
         public TimeSpan HoraEntrada { get; set; }
         [Display(Name = "Data da Saída")]
         public TimeSpan HoraSaida { get; set; }
+
+        public int CondominioId { get; set; }
+        public int VisitanteId { get; set; }
 
         public virtual Condominio Condominio { get; set; }
         public virtual Visitante Visitante { get; set; }
