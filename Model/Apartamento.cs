@@ -28,5 +28,6 @@ namespace Model
 
         [Required]
         public int IdTorre { get; set; }
+        public Torre Torre { get; set; }
     }
 }

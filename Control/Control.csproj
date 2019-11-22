@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApartamentoController.cs" />
+    <Compile Include="ApartamentoDAO.cs" />
     <Compile Include="TipoOcorrenciaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OcorrenciaDAO.cs" />
