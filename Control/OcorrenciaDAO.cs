@@ -34,7 +34,8 @@ namespace Control
                         List<Model.Ocorrencia> lstRetorno = ds.Tables["Ocorrencia"].AsEnumerable().Select(x => new Model.Ocorrencia
                         {
                             Id = x.Field<int>("id"),
-                            Descricao = x.Field<string>("descricao")
+                            Descricao = x.Field<string>("descricao"),
+                            TipoOcorrenciaId = x.Field<int>("idTipoOcorrencia")
                         }).ToList();
 
                         return lstRetorno;

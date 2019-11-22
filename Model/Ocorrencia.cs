@@ -12,5 +12,8 @@ namespace Model
         [Display(Name="Descrição")]
         [MaxLength(100)]
         public string Descricao { get; set; }
+
+        public int TipoOcorrenciaId { get; set; }
+        public virtual TipoOcorrencia TipoOcorrencia { get; set; }
     }
 }
