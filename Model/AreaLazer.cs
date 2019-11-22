@@ -8,7 +8,7 @@ using static Model.Enumerados;
 
 namespace Model
 {
-    class AreaLazer : Basico
+    public class AreaLazer : Basico
     {
         [MaxLength(100)]
         [Required]
