@@ -56,7 +56,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
-	<Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -85,6 +85,10 @@
     <Compile Include="ApartamentoDAO.cs" />
     <Compile Include="AreaLazerDAO.cs" />
     <Compile Include="CondominioDAO.cs" />
+    <Compile Include="CondominoDAO.cs" />
+    <Compile Include="DocumentosFinanceirosDAO.cs" />
+    <Compile Include="FornecedoresDAO.cs" />
+    <Compile Include="FuncionarioDAO.cs" />
     <Compile Include="ItensSelecao.cs" />
     <Compile Include="TipoOcorrenciaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

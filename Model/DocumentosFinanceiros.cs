@@ -8,8 +8,12 @@ using static Model.Enumerados;
 
 namespace Model
 {
-    class DocumentosFinanceiros : Basico
+    public class DocumentosFinanceiros : Basico
     {
+        [MaxLength(100)]
+        [Required]
+        public string Nome { get; set; }
+
         [Required]
         public double Valor { get; set; }
 

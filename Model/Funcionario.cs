@@ -8,7 +8,7 @@ using static Model.Enumerados;
 
 namespace Model
 {
-    class Funcionario : Basico
+    public class Funcionario : Basico
     {
         [MaxLength(50)]
         [Required]
