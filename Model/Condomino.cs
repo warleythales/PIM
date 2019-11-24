@@ -31,6 +31,7 @@ namespace Model
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "Apartamento")]
         public int IdApartamento { get; set; }
     }
 }

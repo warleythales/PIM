@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Control
 {
-    public class ApartmentoDAO
+    public class ApartamentoDAO
     {
         private static string strConection = ConfigurationManager.AppSettings["connection"].ToString();
 
@@ -24,26 +24,26 @@ namespace Control
                     cmd.Connection = conn;
                     cmd.CommandText = @"SELECT * FROM apartamento";
 
-                    using (MySqlDataAdapter da = new MySqlDataAdapter())
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    List<Model.Apartamento> listRetorno = new List<Model.Apartamento>();
+
+                    while (reader.Read())
                     {
-                        da.SelectCommand = cmd;
+                        Model.Apartamento apartamento = new Model.Apartamento();
 
-                        DataSet ds = new DataSet();
-                        da.Fill(ds, "Apartamento");
+                        apartamento.Id = (int)reader["Id"];
+                        apartamento.Numero = (int)reader["numero"];
+                        apartamento.QtdQuartos = (int)reader["qtdQuartos"];
+                        apartamento.QtdMoradores = (int)reader["qtdMoradores"];
+                        apartamento.Disponivel = reader.GetByte("disponivel") >= 1 ? true : false;
+                        apartamento.Tipo = (string)reader["tipo"];
+                        apartamento.IdTorre = (int)reader["idTorre"];
 
-                        List<Model.Apartamento> lstRetorno = ds.Tables["Apartamento"].AsEnumerable().Select(x => new Model.Apartamento
-                        {
-                            Id = x.Field<int>("id"),
-                            Numero = x.Field<int>("numero"),
-                            QtdQuartos = x.Field<int>("qtdQuartos"),
-                            QtdMoradores = x.Field<int>("qtdMoradores"),
-                            Disponivel = x.Field<bool>("disponivel"),
-                            Tipo = x.Field<string>("tipo"),
-                            IdTorre = x.Field<int>("idTorre")
-                        }).ToList();
-
-                        return lstRetorno;
+                        listRetorno.Add(apartamento);
                     }
+
+                    return listRetorno;
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace Control
                     cmd.Parameters.AddWithValue("?qtdQuartos", apartamento.QtdQuartos);
                     cmd.Parameters.AddWithValue("?qtdMoradores", apartamento.QtdMoradores);
                     cmd.Parameters.AddWithValue("?disponivel", apartamento.Disponivel);
-                    cmd.Parameters.AddWithValue("?tipo", apartamento.Tipo);
+                    cmd.Parameters.AddWithValue("?tipo", string.IsNullOrEmpty(apartamento.Tipo) ? "Tipo" : apartamento.Tipo);
                     cmd.Parameters.AddWithValue("?idTorre", apartamento.IdTorre);
                     cmd.Parameters.AddWithValue("?id", apartamento.Id);
 
@@ -125,7 +125,7 @@ namespace Control
                         retorno.Numero = (int)reader["numero"];
                         retorno.QtdQuartos = (int)reader["qtdQuartos"];
                         retorno.QtdMoradores = (int)reader["qtdMoradores"];
-                        retorno.Disponivel = (bool)reader["disponivel"];
+                        retorno.Disponivel = reader.GetByte("disponivel") >= 1 ? true : false;
                         retorno.Tipo = (string)reader["tipo"];
                         retorno.IdTorre = (int)reader["idTorre"];                        
                     }

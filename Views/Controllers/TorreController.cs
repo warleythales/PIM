@@ -2,29 +2,28 @@
 
 namespace Views.Controllers
 {
-    public class OcorrenciaController : Controller
+    public class TorreController : Controller
     {
-        // GET: Ocorrencia
+        // GET: Torre
         public ActionResult Index()
         {
-            return View(Control.OcorrenciaDAO.Listar());
+            return View(Control.TorreDAO.Listar());
         }
 
-        // GET: Ocorrencia/Create
+        // GET: Torre/Create
         public ActionResult Create()
         {
-            ViewBag.TipoOcorrencia = Control.ItensSelecao.TipoOcorrencia.GetSelectListItems;
-            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
+            ViewBag.Condominio = Control.ItensSelecao.Condominio.GetSelectListItems;
             return View();
         }
 
-        // POST: Ocorrencia/Create
+        // POST: Torre/Create
         [HttpPost]
-        public ActionResult Create(Model.Ocorrencia ocorrencia)
+        public ActionResult Create(Model.Torre torre)
         {
             try
             {
-                Control.OcorrenciaDAO.Salvar(ocorrencia);
+                Control.TorreDAO.Salvar(torre);
                 return RedirectToAction("Index");
             }
             catch
@@ -36,19 +35,18 @@ namespace Views.Controllers
         // GET: Visitante/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TipoOcorrencia = Control.ItensSelecao.TipoOcorrencia.GetSelectListItems;
-            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            ViewBag.Condominio = Control.ItensSelecao.Condominio.GetSelectListItems;
+            return View(Control.TorreDAO.BuscarPorId(id));
         }
 
         // POST: Visitante/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.Ocorrencia tipoOcorrencia)
+        public ActionResult Edit(int id, Model.Torre condominio)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.OcorrenciaDAO.Salvar(tipoOcorrencia);
+                Control.TorreDAO.Salvar(condominio);
                 return RedirectToAction("Index");
             }
             catch
@@ -56,20 +54,19 @@ namespace Views.Controllers
                 return View();
             }
         }
-
-        // GET: Ocorrencia/Delete/5
+        // GET: Torre/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            return View(Control.TorreDAO.BuscarPorId(id));
         }
 
-        // POST: Ocorrencia/Delete/5
+        // POST: Torre/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
             try
             {
-                Control.OcorrenciaDAO.Excluir(id);
+                Control.TorreDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch

@@ -143,6 +143,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TorreController.cs" />
+    <Compile Include="Controllers\ApartamentoController.cs" />
+    <Compile Include="Controllers\CondominoController .cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CondominioController.cs" />
     <Compile Include="Controllers\TipoOcorrenciaController.cs" />
@@ -199,6 +202,18 @@
     <Content Include="Views\Condominio\Create.cshtml" />
     <Content Include="Views\Condominio\Edit.cshtml" />
     <Content Include="Views\Condominio\Delete.cshtml" />
+    <Content Include="Views\Condomino\Index.cshtml" />
+    <Content Include="Views\Condomino\Create.cshtml" />
+    <Content Include="Views\Condomino\Edit.cshtml" />
+    <Content Include="Views\Condomino\Delete.cshtml" />
+    <Content Include="Views\Apartamento\Index.cshtml" />
+    <Content Include="Views\Apartamento\Create.cshtml" />
+    <Content Include="Views\Apartamento\Edit.cshtml" />
+    <Content Include="Views\Apartamento\Delete.cshtml" />
+    <Content Include="Views\Torre\Index.cshtml" />
+    <Content Include="Views\Torre\Create.cshtml" />
+    <Content Include="Views\Torre\Edit.cshtml" />
+    <Content Include="Views\Torre\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

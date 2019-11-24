@@ -1,0 +1,82 @@
+﻿@model Model.Torre
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apagar Torre</h2>
+
+<h3>Você tem certeza que deseja deletar essa torre?</h3>
+<div>
+    <h4>Torre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pavimentos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pavimentos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vagas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vagas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Academia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Academia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaoFesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaoFesta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CondominioId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CondominioId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            <a class="btn btn-default" href="@Url.Action("Index")">Voltar</a>
+        </div>
+    }
+</div>

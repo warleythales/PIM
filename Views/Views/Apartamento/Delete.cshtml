@@ -1,0 +1,74 @@
+﻿@model Model.Apartamento
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apagar Apartamento</h2>
+
+<h3>Você tem certeza que deseja deletar esse apartamento?</h3>
+<div>
+    <h4>Apartamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdQuartos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdQuartos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtdMoradores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtdMoradores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disponivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disponivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTorre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTorre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            <a class="btn btn-default" href="@Url.Action("Index")">Voltar</a>
+        </div>
+    }
+</div>

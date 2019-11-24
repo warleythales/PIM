@@ -31,6 +31,7 @@ namespace Model
         public bool Status { get; set; }
 
         [Required]
+        [Display(Name="Condominio")]
         public int CondominioId { get; set; }
         public Condominio Condominio { get; set; }
 

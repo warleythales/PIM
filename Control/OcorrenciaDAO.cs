@@ -46,6 +46,10 @@ namespace Control
 
         public static void Salvar(Model.Ocorrencia ocorrencia)
         {
+
+            ocorrencia.DataAbertura = DateTime.Now;
+            ocorrencia.DataFechamento = ocorrencia.DataAbertura.AddDays(2);
+
             using (MySqlConnection conn = new MySqlConnection(strConection))
             {
                 conn.Open();
@@ -56,15 +60,25 @@ namespace Control
 
                     if (ocorrencia.Id == 0)
                         cmd.CommandText = @"INSERT INTO ocorrencia
-                                                (descricao, idTipo)
+                                                (descricao, IdTipoOcorrencia, IdCondomino, DataAbertura, DataFechamento, Situacao)
                                             VALUES
-                                                (?descricao);";
+                                                (?descricao, ?idTipoOcorrencia, ?idCondomino, ?dataAbertura, ?dataFechamento, ?situacao);";
                     else
                         cmd.CommandText = @"UPDATE ocorrencia 
-                                                SET descricao = ?descricao
+                                                SET descricao = ?descricao,
+                                                    IdTipoOcorrencia = ?idTipoOcorrencia,
+                                                    IdCondomino = ?idCondomino,
+                                                    DataAbertura = ?dataAbertura,
+                                                    DataFechamento = ?dataFechamento,
+                                                    Situacao = ?situacao
                                             WHERE id = ?id;";
 
                     cmd.Parameters.AddWithValue("?descricao", ocorrencia.Descricao);
+                    cmd.Parameters.AddWithValue("?idTipoOcorrencia", ocorrencia.TipoOcorrenciaId);
+                    cmd.Parameters.AddWithValue("?idCondomino", ocorrencia.CondominoId);
+                    cmd.Parameters.AddWithValue("?dataAbertura", ocorrencia.DataAbertura);
+                    cmd.Parameters.AddWithValue("?dataFechamento", ocorrencia.DataFechamento);
+                    cmd.Parameters.AddWithValue("?situacao", ocorrencia.Situacao);
                     cmd.Parameters.AddWithValue("?id", ocorrencia.Id);
 
                     cmd.ExecuteNonQuery();

@@ -24,27 +24,26 @@ namespace Control
                     cmd.Connection = conn;
                     cmd.CommandText = @"SELECT * FROM torre";
 
-                    using (MySqlDataAdapter da = new MySqlDataAdapter())
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    List<Model.Torre> lstRetorno = new List<Model.Torre>();
+
+                    while (reader.Read())
                     {
-                        da.SelectCommand = cmd;
+                        Model.Torre torre = new Model.Torre();
+                        torre.Id = (int)reader["Id"];
+                        torre.Descricao = (string)reader["descricao"];
+                        torre.Academia = reader.GetByte("academia") == 1 ? true : false;
+                        torre.CondominioId = (int)reader["idCondominio"];
+                        torre.Pavimentos = (int)reader["pavimentos"];
+                        torre.SalaoFesta = reader.GetByte("SalaoDeFesta") == 1 ? true : false;
+                        torre.Vagas = (int)reader["vagas"];
+                        torre.Status = reader.GetByte("status") == 1 ? true : false;
 
-                        DataSet ds = new DataSet();
-                        da.Fill(ds, "Torre");
-
-                        List<Model.Torre> lstRetorno = ds.Tables["Torre"].AsEnumerable().Select(x => new Model.Torre
-                        {
-                            Id = x.Field<int>("id"),
-                            Descricao = x.Field<string>("descricao"),
-                            Academia = x.Field<bool>("academia"),
-                            CondominioId = x.Field<int>("idCondominio"),
-                            Pavimentos = x.Field<int>("pavimentos"),
-                            SalaoFesta = x.Field<bool>("SalaoDeFesta"),
-                            Vagas = x.Field<int>("vagas"),
-                            Status = x.Field<bool>("status")
-                        }).ToList();
-
-                        return lstRetorno;
+                        lstRetorno.Add(torre);
                     }
+
+                    return lstRetorno;
                 }
             }
         }
@@ -126,12 +125,12 @@ namespace Control
                     {
                         retorno.Id = (int)reader["Id"];
                         retorno.Descricao = (string)reader["descricao"];
-                        retorno.Academia = (bool)reader["academia"];
+                        retorno.Academia = reader.GetByte("academia") >= 1 ? true : false;
                         retorno.CondominioId = (int)reader["idCondominio"];
                         retorno.Pavimentos = (int)reader["pavimentos"];
-                        retorno.SalaoFesta = (bool)reader["SalaoDeFesta"];
+                        retorno.SalaoFesta = reader.GetByte("SalaoDeFesta") >= 1 ? true : false;
                         retorno.Vagas = (int)reader["vagas"];
-                        retorno.Status = (bool)reader["status"];
+                        retorno.Status = reader.GetByte("status") >= 1 ? true : false;
                     }
 
                     return retorno;

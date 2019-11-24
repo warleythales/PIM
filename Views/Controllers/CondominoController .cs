@@ -2,29 +2,28 @@
 
 namespace Views.Controllers
 {
-    public class OcorrenciaController : Controller
+    public class CondominoController : Controller
     {
-        // GET: Ocorrencia
+        // GET: Condomino
         public ActionResult Index()
         {
-            return View(Control.OcorrenciaDAO.Listar());
+            return View(Control.CondominoDAO.Listar());
         }
 
-        // GET: Ocorrencia/Create
+        // GET: Condomino/Create
         public ActionResult Create()
         {
-            ViewBag.TipoOcorrencia = Control.ItensSelecao.TipoOcorrencia.GetSelectListItems;
-            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
+            ViewBag.Apartamento = Control.ItensSelecao.Apartamento.GetSelectListItems;
             return View();
         }
 
-        // POST: Ocorrencia/Create
+        // POST: Condomino/Create
         [HttpPost]
-        public ActionResult Create(Model.Ocorrencia ocorrencia)
+        public ActionResult Create(Model.Condomino condomino)
         {
             try
             {
-                Control.OcorrenciaDAO.Salvar(ocorrencia);
+                Control.CondominoDAO.Salvar(condomino);
                 return RedirectToAction("Index");
             }
             catch
@@ -36,19 +35,18 @@ namespace Views.Controllers
         // GET: Visitante/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TipoOcorrencia = Control.ItensSelecao.TipoOcorrencia.GetSelectListItems;
-            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            ViewBag.Apartamento = Control.ItensSelecao.Apartamento.GetSelectListItems;
+            return View(Control.CondominoDAO.BuscarPorId(id));
         }
 
         // POST: Visitante/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.Ocorrencia tipoOcorrencia)
+        public ActionResult Edit(int id, Model.Condomino condominio)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.OcorrenciaDAO.Salvar(tipoOcorrencia);
+                Control.CondominoDAO.Salvar(condominio);
                 return RedirectToAction("Index");
             }
             catch
@@ -56,20 +54,19 @@ namespace Views.Controllers
                 return View();
             }
         }
-
-        // GET: Ocorrencia/Delete/5
+        // GET: Condomino/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            return View(Control.CondominoDAO.BuscarPorId(id));
         }
 
-        // POST: Ocorrencia/Delete/5
+        // POST: Condomino/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
             try
             {
-                Control.OcorrenciaDAO.Excluir(id);
+                Control.CondominoDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch
