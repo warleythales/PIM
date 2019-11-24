@@ -198,6 +198,7 @@
     <Content Include="Views\Condominio\Index.cshtml" />
     <Content Include="Views\Condominio\Create.cshtml" />
     <Content Include="Views\Condominio\Edit.cshtml" />
+    <Content Include="Views\Condominio\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
