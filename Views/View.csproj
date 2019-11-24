@@ -143,6 +143,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Controllers\TorreController.cs" />
     <Compile Include="Controllers\ApartamentoController.cs" />
     <Compile Include="Controllers\CondominoController .cs" />
@@ -167,6 +168,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -214,6 +216,12 @@
     <Content Include="Views\Torre\Create.cshtml" />
     <Content Include="Views\Torre\Edit.cshtml" />
     <Content Include="Views\Torre\Delete.cshtml" />
+    <Content Include="Views\Veiculo\Index.cshtml" />
+    <Content Include="Views\Veiculo\Create.cshtml" />
+    <Content Include="Views\Veiculo\Edit.cshtml" />
+    <Content Include="Views\Veiculo\Delete.cshtml" />
+    <Content Include="Views\Ocorrencia\Edit.cshtml" />
+    <Content Include="Views\Ocorrencia\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Model.Veiculo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Veiculos</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Novo</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CondominioId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitanteId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CondominioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitanteId)
+            </td>
+            <td>
+                <a class="btn btn-success" href="@Url.Action("Edit", new { id = item.Id })">Editar</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Excluir</a>
+            </td>
+        </tr>
+    }
+
+</table>

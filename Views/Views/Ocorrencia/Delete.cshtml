@@ -1,0 +1,58 @@
+﻿@model Model.Ocorrencia
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apagar Ocorrência</h2>
+
+<h3>Você tem certeza que deseja deletar esse ocorrência?</h3>
+<div>
+    <h4>Ocorrencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAbertura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAbertura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFechamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFechamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Excluir" class="btn btn-danger" /> |
+    <a class="btn btn-default" href="@Url.Action("Index")">Voltar</a>
+</div>
+    }
+</div>

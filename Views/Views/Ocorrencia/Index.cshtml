@@ -15,6 +15,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Descricao)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAbertura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataFechamento)
+        </th>
         <th></th>
     </tr>
 
@@ -22,6 +28,12 @@
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.Descricao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataAbertura)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataFechamento)
     </td>
     <td>
         <a class="btn btn-success" href="@Url.Action("Edit", new { id = item.Id })">Editar</a>

@@ -35,7 +35,9 @@ namespace Control
                         {
                             Id = x.Field<int>("id"),
                             Descricao = x.Field<string>("descricao"),
-                            TipoOcorrenciaId = x.Field<int>("idTipoOcorrencia")
+                            TipoOcorrenciaId = x.Field<int>("idTipoOcorrencia"),
+                            DataAbertura = x.Field<DateTime>("dataAbertura"),
+                            DataFechamento = x.Field<DateTime>("dataFechamento")
                         }).ToList();
 
                         return lstRetorno;
@@ -123,6 +125,11 @@ namespace Control
                     {
                         retorno.Id = (int)reader["Id"];
                         retorno.Descricao = (string)reader["descricao"];
+                        retorno.DataFechamento = (DateTime)reader["dataFechamento"];
+                        retorno.DataAbertura = (DateTime)reader["dataAbertura"];
+                        retorno.Situacao = (string)reader["situacao"];
+                        retorno.TipoOcorrenciaId = (int)reader["idTipoOcorrencia"];
+                        retorno.CondominoId = (int)reader["idCondomino"];
                     }
 
                     return retorno;
