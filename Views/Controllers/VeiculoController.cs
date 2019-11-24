@@ -13,7 +13,7 @@ namespace Views.Controllers
         // GET: Veiculo/Create
         public ActionResult Create()
         {
-            ViewBag.Condominio = Control.ItensSelecao.Condominio.GetSelectListItems;
+            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
             ViewBag.Visitante = Control.ItensSelecao.Visitante.GetSelectListItems;
             return View();
         }

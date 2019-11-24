@@ -36,7 +36,7 @@ namespace Control
                             Id = x.Field<int>("id"),
                             Ano = x.Field<string>("ano"),
                             Marca = x.Field<string>("marca"),
-                            CondominioId = x.Field<int>("idCondominio"),
+                            CondominoId = x.Field<int>("idCondomino"),
                             VisitanteId = x.Field<int>("idVisitante"),
                             Modelo = x.Field<string>("modelo"),
                             Placa = x.Field<string>("placa")
@@ -60,9 +60,9 @@ namespace Control
 
                     if (veiculo.Id == 0)
                         cmd.CommandText = @"INSERT INTO veiculo
-                                                (ano, marca, idVisitante, modelo, placa, idCondominio)
+                                                (ano, marca, idVisitante, modelo, placa, idCondomino)
                                             VALUES
-                                                (?ano, ?marca, ?idVisitante, ?modelo, ?placa, ?idCondominio);";
+                                                (?ano, ?marca, ?idVisitante, ?modelo, ?placa, ?idCondomino);";
                     else
                         cmd.CommandText = @"UPDATE veiculo 
                                                 SET ano = ?ano,
@@ -70,7 +70,7 @@ namespace Control
                                                     idVisitante = ?idVisitante,
                                                     modelo = ?modelo,
                                                     placa = ?placa,
-                                                    idCondominio = ?idCondominio
+                                                    idCondomino = ?idCondomino
                                             WHERE id = ?id;";
 
                     cmd.Parameters.AddWithValue("?ano", veiculo.Ano);
@@ -78,7 +78,7 @@ namespace Control
                     cmd.Parameters.AddWithValue("?idVisitante", veiculo.VisitanteId);
                     cmd.Parameters.AddWithValue("?modelo", veiculo.Modelo);
                     cmd.Parameters.AddWithValue("?placa", veiculo.Placa);
-                    cmd.Parameters.AddWithValue("?idCondominio", veiculo.CondominioId);
+                    cmd.Parameters.AddWithValue("?idCondomino", veiculo.CondominoId);
                     cmd.Parameters.AddWithValue("?id", veiculo.Id);
 
                     cmd.ExecuteNonQuery();
@@ -124,9 +124,10 @@ namespace Control
                         retorno.Id = (int)reader["Id"];
                         retorno.Ano = (string)reader["ano"];
                         retorno.VisitanteId = (int)reader["idVisitante"];
-                        retorno.CondominioId = (int)reader["idCondominio"];
+                        retorno.CondominoId = (int)reader["idCondomino"];
                         retorno.Marca = (string)reader["marca"];
                         retorno.Modelo = (string)reader["modelo"];
+                        retorno.Placa = (string)reader["placa"];
                     }
 
                     return retorno;

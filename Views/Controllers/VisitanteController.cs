@@ -11,13 +11,7 @@ namespace Views.Controllers
         // GET: Visitante
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Visitante/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            return View(Control.VisitanteDAO.Listar());
         }
 
         // GET: Visitante/Create
@@ -28,12 +22,12 @@ namespace Views.Controllers
 
         // POST: Visitante/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Model.Visitante visitante)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                Control.VisitanteDAO.Salvar(visitante);
                 return RedirectToAction("Index");
             }
             catch
@@ -45,17 +39,17 @@ namespace Views.Controllers
         // GET: Visitante/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(Control.VisitanteDAO.BuscarPorId(id));
         }
 
         // POST: Visitante/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Model.Visitante visitante)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Control.VisitanteDAO.Salvar(visitante);
                 return RedirectToAction("Index");
             }
             catch
@@ -67,7 +61,7 @@ namespace Views.Controllers
         // GET: Visitante/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(Control.VisitanteDAO.BuscarPorId(id));
         }
 
         // POST: Visitante/Delete/5
@@ -77,7 +71,7 @@ namespace Views.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                Control.VisitanteDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch

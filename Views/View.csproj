@@ -222,11 +222,14 @@
     <Content Include="Views\Veiculo\Delete.cshtml" />
     <Content Include="Views\Ocorrencia\Edit.cshtml" />
     <Content Include="Views\Ocorrencia\Delete.cshtml" />
+    <Content Include="Views\Visitante\Index.cshtml" />
+    <Content Include="Views\Visitante\Create.cshtml" />
+    <Content Include="Views\Visitante\Edit.cshtml" />
+    <Content Include="Views\Visitante\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Visitante\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

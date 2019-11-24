@@ -18,12 +18,12 @@ namespace Model
         [MaxLength(10)]
         public string Placa { get; set; }
 
-        [Display(Name = "Condomínio")]
-        public int CondominioId { get; set; }
+        [Display(Name = "Condomino")]
+        public int CondominoId { get; set; }
         [Display(Name = "Visitante")]
         public int VisitanteId { get; set; }
 
-        public virtual Condominio Condominio { get; set; }
+        public virtual Condominio Condomino { get; set; }
         public virtual Visitante Visitante { get; set; }
     }
 }
