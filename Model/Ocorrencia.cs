@@ -13,6 +13,7 @@ namespace Model
         [MaxLength(100)]
         public string Descricao { get; set; }
 
+        [Display(Name="Tipo Ocorrência")]
         public int TipoOcorrenciaId { get; set; }
         public virtual TipoOcorrencia TipoOcorrencia { get; set; }
     }

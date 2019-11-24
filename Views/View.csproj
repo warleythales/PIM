@@ -144,7 +144,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CondominioController.cs" />
+    <Compile Include="Controllers\TipoOcorrenciaController.cs" />
     <Compile Include="Controllers\OcorrenciaController.cs" />
+    <Compile Include="Controllers\VisitanteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,10 +191,18 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ocorrencia\Index.cshtml" />
     <Content Include="Views\Ocorrencia\Create.cshtml" />
+    <Content Include="Views\TipoOcorrencia\Index.cshtml" />
+    <Content Include="Views\TipoOcorrencia\Create.cshtml" />
+    <Content Include="Views\TipoOcorrencia\Delete.cshtml" />
+    <Content Include="Views\TipoOcorrencia\Edit.cshtml" />
+    <Content Include="Views\Condominio\Index.cshtml" />
+    <Content Include="Views\Condominio\Create.cshtml" />
+    <Content Include="Views\Condominio\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Visitante\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

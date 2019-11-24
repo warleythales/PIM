@@ -1,29 +1,39 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Views.Controllers
 {
-    public class OcorrenciaController : Controller
+    public class VisitanteController : Controller
     {
-        // GET: Ocorrencia
+        // GET: Visitante
         public ActionResult Index()
         {
-            return View(Control.OcorrenciaDAO.Listar());
-        }
-
-        // GET: Ocorrencia/Create
-        public ActionResult Create()
-        {
-            ViewBag.TipoOcorrencia = Control.ItensSelecao.TipoOcorrencia.GetSelectListItems;
             return View();
         }
 
-        // POST: Ocorrencia/Create
+        // GET: Visitante/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Visitante/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Visitante/Create
         [HttpPost]
-        public ActionResult Create(Model.Ocorrencia ocorrencia)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                Control.OcorrenciaDAO.Salvar(ocorrencia);
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -35,17 +45,17 @@ namespace Views.Controllers
         // GET: Visitante/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            return View();
         }
 
         // POST: Visitante/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.Ocorrencia tipoOcorrencia)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.OcorrenciaDAO.Salvar(tipoOcorrencia);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -54,19 +64,20 @@ namespace Views.Controllers
             }
         }
 
-        // GET: Ocorrencia/Delete/5
+        // GET: Visitante/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.OcorrenciaDAO.BuscarPorId(id));
+            return View();
         }
 
-        // POST: Ocorrencia/Delete/5
+        // POST: Visitante/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection form)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                Control.OcorrenciaDAO.Excluir(id);
+                // TODO: Add delete logic here
+
                 return RedirectToAction("Index");
             }
             catch

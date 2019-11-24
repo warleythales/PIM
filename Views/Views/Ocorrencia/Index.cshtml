@@ -24,10 +24,8 @@
         @Html.DisplayFor(modelItem => item.Descricao)
     </td>
     <td>
-    <td>
         <a class="btn btn-success" href="@Url.Action("Edit", new { id = item.Id })">Editar</a>
         <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Excluir</a>
-    </td>
     </td>
 </tr>
 }

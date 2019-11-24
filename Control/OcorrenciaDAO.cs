@@ -56,7 +56,7 @@ namespace Control
 
                     if (ocorrencia.Id == 0)
                         cmd.CommandText = @"INSERT INTO ocorrencia
-                                                (descricao)
+                                                (descricao, idTipo)
                                             VALUES
                                                 (?descricao);";
                     else
