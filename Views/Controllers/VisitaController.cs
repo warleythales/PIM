@@ -1,16 +1,20 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Views.Controllers
 {
-    public class VeiculoController : Controller
+    public class VisitaController : Controller
     {
-        // GET: Veiculo
+        // GET: Visita
         public ActionResult Index()
         {
-            return View(Control.VeiculoDAO.Listar());
+            return View(Control.VisitaDAO.Listar());
         }
 
-        // GET: Veiculo/Create
+        // GET: Visita/Create
         public ActionResult Create()
         {
             ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
@@ -18,13 +22,22 @@ namespace Views.Controllers
             return View();
         }
 
-        // POST: Veiculo/Create
+        [ChildActionOnly]
+        public ActionResult CriarPartial()
+        {
+            ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
+            ViewBag.Visitante = Control.ItensSelecao.Visitante.GetSelectListItems;
+            return View();
+        }
+
+        // POST: Visita/Create
         [HttpPost]
-        public ActionResult Create(Model.Veiculo veiculo)
+        public ActionResult Create(Model.Visita visita)
         {
             try
             {
-                Control.VeiculoDAO.Salvar(veiculo);
+                // TODO: Add insert logic here
+                Control.VisitaDAO.Salvar(visita);
                 return RedirectToAction("Index");
             }
             catch
@@ -33,22 +46,22 @@ namespace Views.Controllers
             }
         }
 
-        // GET: Visitante/Edit/5
+        // GET: Visita/Edit/5
         public ActionResult Edit(int id)
         {
             ViewBag.Condomino = Control.ItensSelecao.Condomino.GetSelectListItems;
             ViewBag.Visitante = Control.ItensSelecao.Visitante.GetSelectListItems;
-            return View(Control.VeiculoDAO.BuscarPorId(id));
+            return View(Control.VisitaDAO.BuscarPorId(id));
         }
 
-        // POST: Visitante/Edit/5
+        // POST: Visita/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.Veiculo condominio)
+        public ActionResult Edit(int id, Model.Visita visita)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.VeiculoDAO.Salvar(condominio);
+                Control.VisitaDAO.Salvar(visita);
                 return RedirectToAction("Index");
             }
             catch
@@ -56,19 +69,21 @@ namespace Views.Controllers
                 return View();
             }
         }
-        // GET: Veiculo/Delete/5
+
+        // GET: Visita/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.VeiculoDAO.BuscarPorId(id));
+            return View(Control.VisitaDAO.BuscarPorId(id));
         }
 
-        // POST: Veiculo/Delete/5
+        // POST: Visita/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection form)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                Control.VeiculoDAO.Excluir(id);
+                // TODO: Add delete logic here
+                Control.VisitaDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch

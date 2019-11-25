@@ -15,11 +15,13 @@ namespace Model
         public TimeSpan HoraEntrada { get; set; }
         [Display(Name = "Data da Saída")]
         public TimeSpan HoraSaida { get; set; }
-
-        public int CondominioId { get; set; }
+        
+        [Display(Name = "Condomino")]
+        public int CondominoId { get; set; }
+        [Display(Name = "Visitante")]
         public int VisitanteId { get; set; }
 
-        public virtual Condominio Condominio { get; set; }
+        public virtual Condomino Condomino { get; set; }
         public virtual Visitante Visitante { get; set; }
     }
 }

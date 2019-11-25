@@ -34,7 +34,7 @@ namespace Control
                         List<Model.Visita> lstRetorno = ds.Tables["Visita"].AsEnumerable().Select(x => new Model.Visita
                         {
                             Id = x.Field<int>("id"),
-                            CondominioId = x.Field<int>("idCondominio"),
+                            CondominoId = x.Field<int>("idCondomino"),
                             VisitanteId = x.Field<int>("idVisitante"),
                             DataVisita = x.Field<DateTime>("datavisita"),
                             HoraEntrada = x.Field<TimeSpan>("horaEntrada"),
@@ -49,6 +49,11 @@ namespace Control
 
         public static void Salvar(Model.Visita visita)
         {
+            DateTime dt = DateTime.Now;
+
+            visita.DataVisita = dt;
+            visita.HoraEntrada = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+
             using (MySqlConnection conn = new MySqlConnection(strConection))
             {
                 conn.Open();
@@ -58,17 +63,17 @@ namespace Control
                     cmd.Connection = conn;
 
                     if (visita.Id == 0)
-                        cmd.CommandText = @"INSERT INTO visita (idCondominio, idVisitante, datavisita, horaEntrada, horaSaida) VALUES (?idCondominio, ?idVisitante, ?datavisita, ?horaEntrada, ?horaSaida);";
+                        cmd.CommandText = @"INSERT INTO visita (idCondomino, idVisitante, datavisita, horaEntrada, horaSaida) VALUES (?idCondomino, ?idVisitante, ?datavisita, ?horaEntrada, ?horaSaida);";
                     else
                         cmd.CommandText = @"UPDATE visita 
-                                                SET idCondominio = ?idCondominio,
+                                                SET idCondomino = ?idCondomino,
                                                     idVisitante = ?idVisitante,
                                                     datavisita = ?datavisita,
                                                     horaEntrada = ?horaEntrada,
                                                     horaSaida = ?horaSaida
                                             WHERE id = ?id;";
 
-                    cmd.Parameters.AddWithValue("?idCondominio", visita.CondominioId);
+                    cmd.Parameters.AddWithValue("?idCondomino", visita.CondominoId);
                     cmd.Parameters.AddWithValue("?idVisitante", visita.VisitanteId);
                     cmd.Parameters.AddWithValue("?datavisita", visita.DataVisita);
                     cmd.Parameters.AddWithValue("?horaEntrada", visita.HoraEntrada);
@@ -116,7 +121,7 @@ namespace Control
                     while (reader.Read())
                     {
                         retorno.Id = (int)reader["Id"];
-                        retorno.CondominioId = (int)reader["idCondominio"];
+                        retorno.CondominoId = (int)reader["idCondomino"];
                         retorno.VisitanteId = (int)reader["idVisitante"];
                         retorno.DataVisita = (DateTime)reader["datavisita"];
                         retorno.HoraEntrada = (TimeSpan)reader["horaEntrada"];

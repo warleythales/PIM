@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Model.Visita>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Visita</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Nova</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataVisita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraEntrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CondominoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitanteId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVisita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraSaida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CondominoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitanteId)
+            </td>
+            <td>
+                <a class="btn btn-success" href="@Url.Action("Edit", new { id = item.Id })">Editar</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Excluir</a>
+            </td>
+        </tr>
+    }
+
+</table>

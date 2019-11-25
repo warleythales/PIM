@@ -143,14 +143,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Controllers\TorreController.cs" />
     <Compile Include="Controllers\ApartamentoController.cs" />
     <Compile Include="Controllers\CondominoController .cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CondominioController.cs" />
     <Compile Include="Controllers\TipoOcorrenciaController.cs" />
     <Compile Include="Controllers\OcorrenciaController.cs" />
+    <Compile Include="Controllers\VisitaController.cs" />
     <Compile Include="Controllers\VisitanteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +227,11 @@
     <Content Include="Views\Visitante\Create.cshtml" />
     <Content Include="Views\Visitante\Edit.cshtml" />
     <Content Include="Views\Visitante\Delete.cshtml" />
+    <Content Include="Views\Visita\Index.cshtml" />
+    <Content Include="Views\Visita\Create.cshtml" />
+    <Content Include="Views\Visita\Edit.cshtml" />
+    <Content Include="Views\Visita\Delete.cshtml" />
+    <Content Include="Views\Visita\CriarPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
