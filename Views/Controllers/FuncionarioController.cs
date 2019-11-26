@@ -6,28 +6,28 @@ using System.Web.Mvc;
 
 namespace Views.Controllers
 {
-    public class FornecedoresController : Controller
+    public class FuncionarioController : Controller
     {
-        // GET: Fornecedores
+        // GET: Funcionario
         public ActionResult Index()
         {
-            return View(Control.FornecedoresDAO.Listar());
+            return View(Control.FuncionarioDAO.Listar());
         }
 
-        // GET: Fornecedores/Create
+        // GET: Funcionario/Create
         public ActionResult Create()
         {
             ViewBag.Condominio = Control.ItensSelecao.Condominio.GetSelectListItems;
             return View();
         }
 
-        // POST: Fornecedores/Create
+        // POST: Funcionario/Create
         [HttpPost]
-        public ActionResult Create(Model.Fornecedores fornecedores)
+        public ActionResult Create(Model.Funcionario funcionario)
         {
             try
             {
-                Control.FornecedoresDAO.Salvar(fornecedores);
+                Control.FuncionarioDAO.Salvar(funcionario);
                 return RedirectToAction("Index");
             }
             catch
@@ -36,22 +36,21 @@ namespace Views.Controllers
             }
         }
 
-
-        // GET: Fornecedores/Edit/5
+        // GET: Funcionario/Edit/5
         public ActionResult Edit(int id)
         {
             ViewBag.Condominio = Control.ItensSelecao.Condominio.GetSelectListItems;
-            return View(Control.FornecedoresDAO.BuscarPorId(id));
+            return View(Control.FuncionarioDAO.BuscarPorId(id));
         }
 
-        // POST: Fornecedores/Edit/5
+        // POST: Funcionario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.Fornecedores fornecedores)
+        public ActionResult Edit(int id, Model.Funcionario funcionario)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.FornecedoresDAO.Salvar(fornecedores);
+                Control.FuncionarioDAO.Salvar(funcionario);
                 return RedirectToAction("Index");
             }
             catch
@@ -60,19 +59,19 @@ namespace Views.Controllers
             }
         }
 
-        // GET: Fornecedores/Delete/5
+        // GET: Funcionario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.FornecedoresDAO.BuscarPorId(id));
+            return View(Control.FuncionarioDAO.BuscarPorId(id));
         }
 
-        // POST: Fornecedores/Delete/5
+        // POST: Funcionario/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
             try
             {
-                Control.FornecedoresDAO.Excluir(id);
+                Control.FuncionarioDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch
