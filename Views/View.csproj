@@ -148,6 +148,7 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatrimonioController.cs" />
+    <Compile Include="Controllers\ReuniaoController.cs" />
     <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Controllers\TorreController.cs" />
     <Compile Include="Controllers\ApartamentoController.cs" />
@@ -244,6 +245,7 @@
     <Folder Include="Views\Fornecedores\" />
     <Folder Include="Views\Funcionario\" />
     <Folder Include="Views\Patrimonio\" />
+    <Folder Include="Views\Reuniao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
