@@ -6,28 +6,28 @@ using System.Web.Mvc;
 
 namespace Views.Controllers
 {
-    public class AreaLazerController : Controller
+    public class FornecedoresController : Controller
     {
-        // GET: AreaLazer
+        // GET: Fornecedores
         public ActionResult Index()
         {
-            return View(Control.AreaLazerDAO.Listar());
+            return View(Control.FornecedoresDAO.Listar());
         }
 
-        // GET: AreaLazer/Create
+        // GET: Fornecedores/Create
         public ActionResult Create()
         {
-            ViewBag.Torre = Control.ItensSelecao.Torre.GetSelectListItems;
+            ViewBag.Torre = Control.ItensSelecao.Condominio.GetSelectListItems;
             return View();
         }
 
-        // POST: AreaLazer/Create
+        // POST: Fornecedores/Create
         [HttpPost]
-        public ActionResult Create(Model.AreaLazer arealazer)
+        public ActionResult Create(Model.Fornecedores fornecedores)
         {
             try
             {
-                Control.AreaLazerDAO.Salvar(arealazer);
+                Control.FornecedoresDAO.Salvar(fornecedores);
                 return RedirectToAction("Index");
             }
             catch
@@ -36,21 +36,22 @@ namespace Views.Controllers
             }
         }
 
-        // GET: AreaLazer/Edit/5
+
+        // GET: Fornecedores/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.Torre = Control.ItensSelecao.Torre.GetSelectListItems;
-            return View(Control.AreaLazerDAO.BuscarPorId(id));
+            ViewBag.Torre = Control.ItensSelecao.Condominio.GetSelectListItems;
+            return View(Control.FornecedoresDAO.BuscarPorId(id));
         }
 
-        // POST: AreaLazer/Edit/5
+        // POST: Fornecedores/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Model.AreaLazer arealazer)
+        public ActionResult Edit(int id, Model.Fornecedores fornecedores)
         {
             try
             {
                 // TODO: Add update logic here
-                Control.AreaLazerDAO.Salvar(arealazer);
+                Control.FornecedoresDAO.Salvar(fornecedores);
                 return RedirectToAction("Index");
             }
             catch
@@ -59,19 +60,19 @@ namespace Views.Controllers
             }
         }
 
-        // GET: AreaLazer/Delete/5
+        // GET: Fornecedores/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Control.AreaLazerDAO.BuscarPorId(id));
+            return View(Control.FornecedoresDAO.BuscarPorId(id));
         }
 
-        // POST: AreaLazer/Delete/5
+        // POST: Fornecedores/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
             try
             {
-                Control.AreaLazerDAO.Excluir(id);
+                Control.FornecedoresDAO.Excluir(id);
                 return RedirectToAction("Index");
             }
             catch
