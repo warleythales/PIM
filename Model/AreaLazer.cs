@@ -28,6 +28,8 @@ namespace Model
         public string Status { get; set; }
 
         [Required]
+        [Display(Name = "Torre")]
         public int IdTorre { get; set; }
+        public Torre Torre { get; set; }
     }
 }

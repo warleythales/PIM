@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Model.AreaLazer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Áreas de Lazer</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Nova</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CapacidadePessoas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visitante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aluguel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTorre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadePessoas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluguel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTorre)
+            </td>
+            <td>
+                <a class="btn btn-success" href="@Url.Action("Edit", new { id = item.Id })">Editar</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.Id })">Excluir</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+

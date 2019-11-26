@@ -237,11 +237,11 @@
     <Content Include="Views\Visita\Edit.cshtml" />
     <Content Include="Views\Visita\Delete.cshtml" />
     <Content Include="Views\Visita\CriarPartial.cshtml" />
+    <Content Include="Views\AreaLazer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\AreaLazer\" />
     <Folder Include="Views\Fornecedores\" />
     <Folder Include="Views\Funcionario\" />
     <Folder Include="Views\Patrimonio\" />
